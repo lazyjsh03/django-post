@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}게시글 목록{% endblock %}
+
+{% block content %}
+    <h2>게시글 목록</h2>
+    <table border="1" width="80%">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>등록일</th>
+                <th>조회수</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for board in board_list %}
+            <tr>
+                <td>{{ board.id }}</td>
+                <td><a href="{% url 'board:read' board.id %}">{{ board.title }}</a></td>
+                <td>{{ board.writer }}</td>
+                <td>{{ board.regdate|date:"Y-m-d" }}</td> <td>{{ board.readcount }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" align="center">게시글이 없습니다.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{% url 'board:register' %}">[글쓰기]</a> {% endblock %}

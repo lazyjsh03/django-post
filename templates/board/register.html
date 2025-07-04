@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}새 글 등록{% endblock %}
+
+{% block content %}
+    <h2>새 글 등록</h2>
+    <form method="POST">
+        {% csrf_token %} <table border="1">
+            <tr>
+                <th>제목</th>
+                <td><input type="text" name="title" style="width: 98%;"></td>
+            </tr>
+            <tr>
+                <th>작성자</th>
+                <td><input type="text" name="writer" style="width: 98%;"></td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td><textarea name="content" rows="10" style="width: 98%;"></textarea></td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="등록">
+    </form>
+{% endblock %}

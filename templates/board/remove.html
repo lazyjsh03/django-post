@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}글 삭제 확인{% endblock %}
+
+{% block content %}
+    <h2>글 삭제 확인</h2>
+    <p>
+        "<strong>{{ board.title }}</strong>" 게시글을 정말로 삭제하시겠습니까?
+    </p>
+    <p>이 작업은 되돌릴 수 없습니다.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" value="예, 삭제합니다">
+        <a href="{% url 'board:read' board.id %}">아니오, 돌아갑니다</a>
+    </form>
+{% endblock %}

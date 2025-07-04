@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}게시판 메인{% endblock %}
+
+{% block content %}
+    <h2>게시판에 오신 것을 환영합니다.</h2>
+    <p>이곳은 Django 함수형 뷰(FBV)로 만든 기본 게시판입니다.</p>
+    <br>
+    <a href="{% url 'board:list' %}">[게시글 목록 보기]</a>
+    {% endblock %}

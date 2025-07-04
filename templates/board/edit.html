@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}글 수정: {{ board.title }}{% endblock %}
+
+{% block content %}
+    <h2>글 수정</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <table border="1">
+            <tr>
+                <th>제목</th>
+                <td><input type="text" name="title" value="{{ board.title }}" style="width: 98%;"></td>
+            </tr>
+            <tr>
+                <th>작성자</th>
+                <td><input type="text" name="writer" value="{{ board.writer }}" readonly style="width: 98%;"></td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td><textarea name="content" rows="10" style="width: 98%;">{{ board.content }}</textarea></td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="수정 완료">
+    </form>
+{% endblock %}
