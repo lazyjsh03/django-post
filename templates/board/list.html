@@ -29,5 +29,22 @@
             {% endfor %}
         </tbody>
     </table>
+    <div style="text-align: center; margin-top: 20px;">
+        {% if board_list.has_previous %}
+            <a href="?page={{ board_list.previous_page_number }}">[이전]</a>
+        {% endif %}
+
+        {% for page_number in board_list.paginator.page_range %}
+            {% if page_number == board_list.number %}
+                <strong style="color: red;">{{ page_number }}</strong>
+            {% else %}
+                <a href="?page={{ page_number }}">{{ page_number }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if board_list.has_next %}
+            <a href="?page={{ board_list.next_page_number }}">[다음]</a>
+        {% endif %}
+    </div>
     <br>
     <a href="{% url 'board:register' %}">[글쓰기]</a> {% endblock %}

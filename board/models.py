@@ -1,14 +1,16 @@
 # board/models.py
 
 from django.db import models
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 class Board(models.Model):
     # 제목: 최대 200자까지 저장 가능한 문자열 필드
     title = models.CharField(max_length=200)
 
-    # 작성자: 최대 100자까지 저장 가능한 문자열 필드
-    writer = models.CharField(max_length=100)
+    # 작성자: 작성 유저
+    writer = models.ForeignKey(User, on_delete=models.CASCADE)
 
     # 내용: 글자 수 제한이 없는 긴 텍스트 필드
     content = models.TextField()

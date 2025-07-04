@@ -18,4 +18,6 @@ urlpatterns = [
     path("edit/<int:id>/", views.edit, name="edit"),
     # /board/remove/<id>/ 주소와 views.py의 remove 함수를 연결
     path("remove/<int:id>/", views.remove, name="remove"),
+    # signup url 추가
+    path("signup/", views.signup, name="signup"),
 ]
